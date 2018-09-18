@@ -1,0 +1,42 @@
+.wrapper{
+	background-color: #37dce5;
+	height: 700px;
+	width: 1000px;
+	margin: auto;
+}
+.menu{
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	float: right;
+	height: 92%;
+	padding: 30px;
+	position: relative;
+}
+.title{
+	border: 1px solid #000000;
+	height: 25%;
+	text-align: center;
+
+}
+.volume{
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	height: 25%;
+}
+.section{
+	border: 1px solid #000000;
+	height: 25%;
+}
+.footbar{
+	background-color: #a0afaf;
+	border: 1px solid #000000;
+	height: 25%;
+}
+.menu_text{
+	text-align: center;
+}
+
+html, body{
+	margin: 0;
+	padding: 0;
+}
