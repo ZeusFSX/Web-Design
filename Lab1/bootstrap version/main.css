@@ -37,8 +37,8 @@
 #text_section{
 	float: right;
 }
-.menu_text{
-	text-align: center;
+.roz{
+	margin-left: 10%;
 }
 
 html, body{
