@@ -37,11 +37,36 @@
 #text_section{
 	float: right;
 }
+.information{
+	margin-top: 20px;
+	overflow-y: scroll;
+}
 .roz{
-	margin-left: 10%;
+	
+}
+.active{
+	color:red;
 }
 
 html, body{
 	margin: 0;
 	padding: 0;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+	margin: auto;
+	margin-top: 20px;
+	
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
