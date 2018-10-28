@@ -1,0 +1,80 @@
+<!DOCTYPE html5>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="datetime-local" id="alarmTime" name="">
+	<button onclick="setAlarm(this);" id="alarmButton"> Set Alarm</button>
+	<div id="alarmOptions" style="display: none;">
+		<button onclick="snooze();">Snooze 5 Minutes</button>
+		<button onclick="stopAlarm();">Stop Alarm</button>
+	</div>
+
+	<script type="text/javascript">
+
+		var alarmSound = new Audio();
+		var alarmTimmer;
+
+
+		alarmSound.src = 'tiryam.mp3';
+
+		function setAlarm(button) {
+			var ms = document.getElementById('alarmTime').valueAsNumber;
+			if(isNaN(ms)){
+				alert("Invalid Date");
+				return;
+			}
+			var alarm = new Date(ms);
+			var alarmTime = new Date(alarm.getUTCFullYear(), 
+									 alarm.getUTCMonth(),
+									 alarm.getUTCDate(),
+									 alarm.getUTCHours(),
+									 alarm.getUTCMinutes(),
+									 alarm.getUTCSeconds());
+			var differenceInMs = alarmTime.getTime() - (new Date()).getTime();
+
+			if(differenceInMs < 0){
+				alert("Specified time is already passed");
+				return;
+			} 
+
+			alarmTimmer = setTimeout(initAlarm, differenceInMs);
+
+			button.innerText = 'Cancel Alarm';
+			button.setAttribute('onclick', 'cancelAlarm(this);');
+
+
+		};
+
+
+		function cancelAlarm(button) {
+			button.innerText = 'Set Alarm';
+			button.setAttribute('onclick', 'setAlarm(this);');
+			clearTimeout(alarmTimmer);
+		};
+
+
+
+		function initAlarm() {
+			alarmSound.play();
+			document.getElementById('alarmOptions').style.display = '';
+		};
+
+
+		function stopAlarm() {
+			alarmSound.pause();
+			alarmSound.currentTime = 0;
+			document.getElementById('alarmOptions').style.display = 'none';
+			cancelAlarm(document.getElementById('alarmButton'));
+		}
+
+		function snooze(){
+			stopAlarm();
+			setTimeout(initAlarm, 360000);
+		}
+	</script>
+	
+</body>
+</html>
